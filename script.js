@@ -45,4 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Team portrait spotlight reveal
+    const memberPhotos = document.querySelectorAll('.member-photo');
+    memberPhotos.forEach((photo) => {
+        const img = photo.querySelector('img');
+        if (!img) return;
+
+        photo.style.setProperty('--img-url', `url("${img.currentSrc || img.src}")`);
+
+        const updateSpotlight = (e) => {
+            const rect = photo.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+            photo.style.setProperty('--spot-x', `${x}%`);
+            photo.style.setProperty('--spot-y', `${y}%`);
+        };
+
+        photo.addEventListener('mousemove', updateSpotlight);
+        photo.addEventListener('mouseenter', updateSpotlight);
+        photo.addEventListener('mouseleave', () => {
+            photo.style.setProperty('--spot-x', '50%');
+            photo.style.setProperty('--spot-y', '50%');
+        });
+    });
 });
