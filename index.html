@@ -41,20 +41,47 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="robot-container">
-                    <div class="robot-placeholder">
-                        <img src="assets/robot_hero.png" alt="Advanced Robotics Unit" class="robot-img">
-                    </div>
-                </div>
+                <canvas id="neuro-network"></canvas>
             </div>
         </section>
 
         <!-- Our Story Section -->
         <section id="story" class="story-section">
             <div class="story-container">
-                <div class="story-image hidden">
-                    <img src="assets/story_image.jpg" alt="Our Story"
-                        onerror="this.src='https://via.placeholder.com/600x800/2C2A26/B6B09F?text=Our+Story'">
+                <div class="workflow-timeline hidden">
+                    <div class="workflow-line"></div>
+
+                    <div class="workflow-step delay-100">
+                        <div class="step-marker">01</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Design</h3>
+                            <p class="step-subtitle">Hardware constraints & CAD</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step delay-200">
+                        <div class="step-marker">02</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Simulation</h3>
+                            <p class="step-subtitle">Training in Isaac Sim/Gazebo</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step delay-300">
+                        <div class="step-marker">03</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Sim-to-Real</h3>
+                            <p class="step-subtitle">Deploying policies to hardware</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step delay-400">
+                        <div class="step-marker">04</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Validation</h3>
+                            <p class="step-subtitle">Real-world testing & data</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="story-content">
                     <h2 class="story-title hidden">Our Story</h2>
