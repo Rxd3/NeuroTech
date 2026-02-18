@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Flashlight Effect
     const root = document.documentElement;
-    
+
     document.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
-        
+
         root.style.setProperty('--mouse-x', `${x}px`);
         root.style.setProperty('--mouse-y', `${y}px`);
-        
+
         // Hero Tilt Effect
         handleTilt(e);
     });
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3D Tilt Logic for Hero Section
     const heroSection = document.querySelector('.hero');
     const robotContainer = document.querySelector('.robot-container');
-    
+
     function handleTilt(e) {
         if (!heroSection || !robotContainer) return;
 
@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Calculate rotation based on center of screen
         // Range: -20deg to 20deg
-        const rotateY = ((x / innerWidth) - 0.5) * 40; 
+        const rotateY = ((x / innerWidth) - 0.5) * 40;
         const rotateX = ((y / innerHeight) - 0.5) * -40;
 
         robotContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     }
-    
+
     // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -70,4 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
             photo.style.setProperty('--spot-y', '50%');
         });
     });
+
+    // Scroll Animations (Intersection Observer)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target); // Animate only once
+            }
+        });
+    }, observerOptions);
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 });

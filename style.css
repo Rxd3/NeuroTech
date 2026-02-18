@@ -274,12 +274,31 @@ section {
 .team-card {
     display: grid;
     grid-template-columns: 180px 1fr;
+    align-items: center;
+    gap: 2rem;
     color: var(--color-accent);
     font-size: 0.95rem;
     opacity: 0.9;
     border: none;
     background: transparent;
     outline: none;
+}
+
+.member-name {
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+}
+
+.member-title {
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.member-bio {
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 .member-photo {
@@ -518,5 +537,41 @@ section {
 
     .member-photo {
         height: 300px;
+    }
+}
+
+/* Scroll Animations */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+.delay-400 {
+    transition-delay: 400ms;
+}
+
+@media (prefers-reduced-motion) {
+    .hidden {
+        transition: none;
     }
 }
