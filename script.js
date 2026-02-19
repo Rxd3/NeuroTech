@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Global Flashlight Effect ---
     const root = document.documentElement;
-    
+
     document.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
-        
+
         root.style.setProperty('--mouse-x', `${x}px`);
         root.style.setProperty('--mouse-y', `${y}px`);
     });
@@ -71,49 +71,49 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Particle Network Animation (Hero Section) ---
     const canvas = document.getElementById('neuro-network');
     if (!canvas) return; // Guard clause if canvas is missing
-    
+
     const ctx = canvas.getContext('2d');
     let width, height;
     let particles = [];
-    
+
     // Configuration
     let particleCount = 100; // Default
     const connectionDistance = 120;
     const mouseInteractionRadius = 150;
-    
+
     // Resize handling
     function resize() {
         const container = canvas.parentElement;
-        
+
         // On mobile, if .hero-visual is absolute 100%, it takes parent dimensions
         // We use offsetWidth/Height to get the rendered size including padding/border if any
         width = container.offsetWidth;
         height = container.offsetHeight;
-        
+
         canvas.width = width;
         canvas.height = height;
-        
+
         // Dynamic particle count: fewer on mobile
         if (window.innerWidth < 768) {
-            particleCount = 40; 
+            particleCount = 40;
         } else {
             particleCount = 100;
         }
 
         initParticles();
     }
-    
+
     // Mouse position tracking for canvas
     let mouse = { x: null, y: null };
-    
-    window.addEventListener('mousemove', function(e) {
+
+    window.addEventListener('mousemove', function (e) {
         // We need coordinates relative to the canvas
         const rect = canvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
     });
 
-    window.addEventListener('mouseleave', function() {
+    window.addEventListener('mouseleave', function () {
         mouse.x = null;
         mouse.y = null;
     });
@@ -154,16 +154,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
-        
+
         // Update and draw particles
         for (let i = 0; i < particles.length; i++) {
             particles[i].update();
             particles[i].draw();
         }
-        
+
         // Draw connections
         connectParticles();
-        
+
         requestAnimationFrame(animate);
     }
 
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Increase opacity and maybe slightly colorize towards cream/gold
                             const brightness = 1 - (distanceMouse / mouseInteractionRadius);
                             strokeStyle = `rgba(234, 228, 213, ${opacity * 0.8 * brightness + 0.1})`; // var(--color-flashlight) is #EAE4D5
-                            lineWidth = 1 + brightness; 
+                            lineWidth = 1 + brightness;
                         }
                     }
 

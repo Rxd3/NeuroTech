@@ -379,6 +379,34 @@ section {
     color: var(--color-text);
 }
 
+/* Member Tags */
+.member-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: -0.5rem;
+    /* Counteract bio margin for small top spacing */
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: #F2F2F2;
+    border: 1px solid rgba(234, 228, 213, 0.25);
+    background: rgba(234, 228, 213, 0.06);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    background: rgba(234, 228, 213, 0.10);
+    border-color: rgba(234, 228, 213, 0.40);
+    transform: translateY(-1px);
+}
+
 /* Projects Section */
 .projects-slider-container {
     overflow-x: auto;
