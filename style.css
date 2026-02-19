@@ -195,76 +195,108 @@ section {
 /* Vertical Workflow Timeline */
 .workflow-timeline {
     flex: 1;
-    height: 500px;
-    /* Match approximate height of text or previous image */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 50px;
+    /* Consistent vertical gaps */
     position: relative;
     padding: 2rem 0;
     margin-top: 4rem;
-    /* Match previous margin */
 }
 
 .workflow-line {
     position: absolute;
-    left: 24px;
-    /* Center of the 50px marker (approx) */
+    left: 25px;
+    /* Perfectly centered (50px width / 2) */
     top: 2rem;
     bottom: 2rem;
     width: 1px;
     background: rgba(234, 228, 213, 0.2);
     z-index: 0;
+    transform: translateX(-50%);
+    /* Centering fix */
 }
 
 .workflow-step {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
+    /* Increased gap for rhythm */
     position: relative;
     z-index: 1;
+    cursor: default;
 }
 
 .step-marker {
     width: 50px;
     height: 50px;
-    border: 1px solid var(--color-accent);
+    border: 1px solid rgba(234, 228, 213, 0.3);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--color-bg);
-    /* Covers the line */
     font-family: 'Manrope', sans-serif;
     font-size: 0.9rem;
     color: var(--color-flashlight);
-    transition: all 0.3s ease;
+    /* #EAE4D5 */
+    transition: all 0.4s ease;
+    flex-shrink: 0;
 }
 
 .workflow-step:hover .step-marker {
-    background-color: var(--color-accent);
-    color: var(--color-bg);
-    box-shadow: 0 0 15px rgba(182, 176, 159, 0.3);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px rgba(234, 228, 213, 0.2);
+    transform: scale(1.05);
 }
 
 .step-content {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
 }
 
 .step-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     color: var(--color-accent);
+    margin-bottom: 8px;
+    /* Requirement: 6-10px */
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+/* Underline Animation */
+.step-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: width 0.4s ease;
+}
+
+.workflow-step:hover .step-title::after {
+    width: 100%;
 }
 
 .step-subtitle {
     font-family: 'Manrope', sans-serif;
-    font-size: 0.9rem;
-    color: rgba(242, 242, 242, 0.6);
+    font-size: 13px;
+    /* Requirement: 12-13px */
+    letter-spacing: 0.14em;
+    /* Requirement: 0.14em */
+    color: rgba(242, 242, 242, 0.65);
+    /* Requirement matches */
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    transition: opacity 0.3s ease;
+}
+
+.workflow-step:hover .step-subtitle {
+    opacity: 0.85;
+    /* Requirement: 0.65 -> 0.85 */
 }
 
 .story-content {
@@ -435,10 +467,13 @@ section {
 .project-thumb {
     width: 100%;
     height: 300px;
-    background: rgba(182, 176, 159, 0.1);
     margin-bottom: 1.5rem;
     overflow: hidden;
     position: relative;
+    --spot-x: 50%;
+    --spot-y: 50%;
+    --spot-size: 90px;
+    /* Match member photo spot size */
 }
 
 .project-thumb img {
@@ -447,18 +482,28 @@ section {
     object-fit: cover;
     transition: transform 0.5s;
     filter: grayscale(100%);
+    transform: scale(1.001);
 }
 
-.placeholder-thumb {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(182, 176, 159, 0.1), transparent);
+.project-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--img-url);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 250ms ease;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle var(--spot-size) at var(--spot-x) var(--spot-y), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 75%);
+    mask-image: radial-gradient(circle var(--spot-size) at var(--spot-x) var(--spot-y), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 75%);
 }
 
-.project-card:hover .project-thumb img {
-    transform: scale(1.05);
-    filter: grayscale(0%);
+.project-card:hover .project-thumb::after {
+    opacity: 1;
 }
+
+/* Removed specific img hover effects to match member-photo behavior */
 
 .project-name {
     font-size: 2rem;
@@ -607,7 +652,8 @@ section {
     .workflow-timeline {
         width: 100%;
         height: auto;
-        gap: 1.5rem;
+        gap: 2.5rem;
+        /* Tighter gap on mobile */
         padding-left: 0;
         padding-top: 0;
         margin-top: 2rem;
@@ -615,7 +661,7 @@ section {
 
     .workflow-line {
         left: 20px;
-        /* Adjust for smaller marker if needed */
+        /* Adjust for smaller marker */
         top: 0;
         bottom: 0;
     }
@@ -624,9 +670,71 @@ section {
         gap: 1.5rem;
     }
 
+    .step-marker {
+        width: 40px;
+        /* Smaller marker */
+        height: 40px;
+        font-size: 0.8rem;
+    }
+
+    .step-title {
+        font-size: 1.3rem;
+    }
+
+    .step-content {
+        gap: 0;
+        /* Let margins handle it */
+    }
+
     .story-title {
         font-size: 2.5rem;
         text-align: center;
+    }
+
+    /* Projects Section Mobile */
+    .projects-slider-container {
+        padding-bottom: 2rem;
+        overflow: visible;
+        /* Using grid layout instead of slider for mobile */
+    }
+
+    .projects-track {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-right: 0;
+        gap: 3rem;
+    }
+
+    .project-card {
+        min-width: 0;
+        /* Override default */
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .project-thumb {
+        height: auto;
+        aspect-ratio: 4/3;
+        /* Consistent aspect ratio */
+    }
+
+    .project-detail-wrapper {
+        padding: 0 1rem;
+    }
+
+    .project-name {
+        font-size: 1.75rem;
+        /* Slightly smaller for mobile */
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
+        line-height: 1.3;
+    }
+
+    .view-project-btn {
+        padding: 12px 0;
+        /* Larger touch target */
+        font-size: 1rem;
     }
 
     .team-grid {
@@ -699,5 +807,93 @@ section {
 @media (prefers-reduced-motion) {
     .hidden {
         transition: none;
+    }
+}
+
+/* Scroll Down Badge */
+.scroll-badge {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+.scroll-badge:hover {
+    transform: translateX(-50%) scale(1.03);
+}
+
+.badge-text-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotateText 15s linear infinite;
+    pointer-events: none;
+}
+
+.badge-text-svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-accent);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.badge-text-svg text {
+    font-size: 11.5px;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-center {
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-bg);
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-badge:hover .badge-text-svg {
+    opacity: 1;
+}
+
+.scroll-badge:hover .badge-center {
+    transform: scale(1.1);
+}
+
+/* Rotation Animation */
+@keyframes rotateText {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .badge-text-wrapper {
+        animation: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-badge {
+        display: none !important;
     }
 }

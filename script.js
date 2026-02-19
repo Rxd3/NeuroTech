@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Team Portrait Spotlight ---
-    const memberPhotos = document.querySelectorAll('.member-photo');
+    // --- Team Portrait & Project Spotlight ---
+    const memberPhotos = document.querySelectorAll('.member-photo, .project-thumb');
     memberPhotos.forEach((photo) => {
         const img = photo.querySelector('img');
         if (!img) return;
