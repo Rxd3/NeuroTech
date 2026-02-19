@@ -209,4 +209,144 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', resize);
     resize(); // Initial sizing
     animate(); // Start loop
+
+    // --- Internationalization (i18n) ---
+    const i18n = {
+        en: {
+            nav: {
+                home: "HOME",
+                about: "ABOUT",
+                projects: "PROJECTS",
+                contact: "CONTACT"
+            },
+            hero: {
+                subtitle: "Bridging the gap between artificial intelligence and physical hardware. We design advanced simulations and implement them into real-world mechanics.",
+                est: "EST. 2026",
+                scroll: "SCROLL DOWN • SCROLL DOWN •"
+            },
+            story: {
+                step1: { title: "Design", subtitle: "Hardware Design & CAD" },
+                step2: { title: "Simulation", subtitle: "RL Policy Training (Isaac Sim / Gazebo)" },
+                step3: { title: "Sim-to-Real", subtitle: "Deploying Policies to Hardware" },
+                step4: { title: "Validation", subtitle: "Real-World Testing & Data" },
+                title: "Our Story",
+                p1: "Founded in 2026 at Istinye University in Turkey, NeuroTech is a student research team combining engineering and AI to build research-ready robotic platforms.",
+                p2: "Our goal is to work in a disciplined and professional way—from designing and assembling the robot to building accurate simulations, running real hardware tests, and improving performance through experiments and data.",
+                p3: "We apply AI methods to model behavior, optimize control policies, and support decision-making across the pipeline, while maintaining clear documentation, version-controlled assets, and reproducible experiments that make our results easy to verify and build upon."
+            },
+            team: {
+                title: "The Minds",
+                member1: {
+                    title: "Computer Engineering Student",
+                    bio: "Specializing in inverse kinematics and real-time control systems."
+                },
+                member2: {
+                    title: "Computer Engineering Student",
+                    bio: "Specializing in reinforcement learning environments and physics engines."
+                }
+            },
+            tags: {
+                control: "Control",
+                simulation: "Simulation",
+                physics: "Physics"
+            },
+            projects: {
+                title: "Innovations",
+                view: "VIEW PROJECT"
+            },
+            contact: {
+                title: "Get in Touch"
+            }
+        },
+        tr: {
+            nav: {
+                home: "ANASAYFA",
+                about: "HAKKIMIZDA",
+                projects: "PROJELER",
+                contact: "İLETİŞİM"
+            },
+            hero: {
+                subtitle: "Yapay zeka ve fiziksel donanım arasındaki boşluğu dolduruyoruz. Gelişmiş simülasyonlar tasarlıyor ve bunları gerçek mekaniklere uyguluyoruz.",
+                est: "KUR. 2026",
+                scroll: "AŞAĞI KAYDIR • AŞAĞI KAYDIR •"
+            },
+            story: {
+                step1: { title: "Tasarım", subtitle: "Donanım Tasarımı & CAD" },
+                step2: { title: "Simülasyon", subtitle: "RL Politika Eğitimi (Isaac Sim / Gazebo)" },
+                step3: { title: "Simülasyondan Gerçeğe", subtitle: "Politikaların Donanıma Aktarımı" },
+                step4: { title: "Doğrulama", subtitle: "Gerçek Dünya Testleri & Veri" },
+                title: "Hikayemiz",
+                p1: "2026 yılında İstinye Üniversitesi'nde kurulan NeuroTech, araştırma odaklı robotik platformlar inşa etmek için mühendislik ve yapay zekayı birleştiren bir öğrenci araştırma ekibidir.",
+                p2: "Amacımız, robot tasarlayıp birleştirmekten, doğru simülasyonlar oluşturmaya, gerçek donanım testleri yapmaya ve deneyler/veri yoluyla performansı artırmaya kadar disiplinli ve profesyonel bir şekilde çalışmaktır.",
+                p3: "Davranış modelleme, kontrol politikalarını optimize etme ve süreç boyunca karar vermeyi destekleme konusunda yapay zeka yöntemleri uygularken; sonuçlarımızın doğrulanabilir ve üzerine inşa edilebilir olmasını sağlayan net dokümantasyon ve tekrarlanabilir deneyleri sürdürüyoruz."
+            },
+            team: {
+                title: "Ekip",
+                member1: {
+                    title: "Bilgisayar Mühendisliği Öğrencisi",
+                    bio: "Ters kinematik ve gerçek zamanlı kontrol sistemleri üzerine uzmanlaşıyor."
+                },
+                member2: {
+                    title: "Bilgisayar Mühendisliği Öğrencisi",
+                    bio: "Pekiştirmeli öğrenme ortamları ve fizik motorları üzerine uzmanlaşıyor."
+                }
+            },
+            tags: {
+                control: "Kontrol",
+                simulation: "Simülasyon",
+                physics: "Fizik"
+            },
+            projects: {
+                title: "İnovasyonlar",
+                view: "PROJEYİ GÖR"
+            },
+            contact: {
+                title: "İletişime Geçin"
+            }
+        }
+    };
+
+    function setLanguage(lang) {
+        if (!i18n[lang]) return;
+
+        // Save preference
+        localStorage.setItem('lang', lang);
+        document.documentElement.lang = lang;
+
+        // Update active state in switcher
+        document.querySelectorAll('.lang-opt').forEach(opt => {
+            opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+        });
+
+        // Recursively find and update text
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const keys = key.split('.');
+            let value = i18n[lang];
+
+            for (const k of keys) {
+                if (value) value = value[k];
+            }
+
+            if (value) {
+                // Special handling for textPath to preserve visual spacing if needed, 
+                // but just setting textContent is usually fine for these.
+                el.textContent = value;
+            }
+        });
+    }
+
+    // Initial Load
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = navigator.language.startsWith('tr') ? 'tr' : 'en';
+    const initialLang = savedLang || browserLang;
+    setLanguage(initialLang);
+
+    // Event Listeners
+    document.querySelectorAll('.lang-opt').forEach(opt => {
+        opt.addEventListener('click', () => {
+            const lang = opt.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
 });

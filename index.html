@@ -19,10 +19,15 @@
 
     <nav>
         <div class="nav-links">
-            <a href="#home">HOME</a>
-            <a href="#story">ABOUT</a>
-            <a href="#projects">PROJECTS</a>
-            <a href="#contact">CONTACT</a>
+            <a href="#home" data-i18n="nav.home">HOME</a>
+            <a href="#story" data-i18n="nav.about">ABOUT</a>
+            <a href="#projects" data-i18n="nav.projects">PROJECTS</a>
+            <a href="#contact" data-i18n="nav.contact">CONTACT</a>
+        </div>
+        <div class="lang-switch">
+            <span class="lang-opt active" data-lang="en">EN</span>
+            <span class="lang-divider">|</span>
+            <span class="lang-opt" data-lang="tr">TR</span>
         </div>
     </nav>
 
@@ -31,9 +36,10 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">NeuroTech</h1>
-                <p class="hero-subtitle">Bridging the gap between artificial intelligence and physical hardware. We
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Bridging the gap between artificial intelligence and
+                    physical hardware. We
                     design advanced simulations and implement them into real-world mechanics.</p>
-                <div class="hero-footer-left">EST. 2026</div>
+                <div class="hero-footer-left" data-i18n="hero.est">EST. 2026</div>
                 <div class="hero-footer-right">
                     <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
                     <a href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
@@ -49,8 +55,8 @@
                         <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                             fill="transparent" />
                         <text>
-                            <textPath href="#circlePath" fill="currentColor">
-                                PROJECT•PROJECT•PROJECT•
+                            <textPath href="#circlePath" fill="currentColor" data-i18n="hero.scroll">
+                                SCROLL DOWN • SCROLL DOWN •
                             </textPath>
                         </text>
                     </svg>
@@ -70,52 +76,56 @@
                     <div class="workflow-step delay-100">
                         <div class="step-marker">01</div>
                         <div class="step-content">
-                            <h3 class="step-title">Design</h3>
-                            <p class="step-subtitle">Hardware Design & CAD</p>
+                            <h3 class="step-title" data-i18n="story.step1.title">Design</h3>
+                            <p class="step-subtitle" data-i18n="story.step1.subtitle">Hardware Design & CAD</p>
                         </div>
                     </div>
 
                     <div class="workflow-step delay-200">
                         <div class="step-marker">02</div>
                         <div class="step-content">
-                            <h3 class="step-title">Simulation</h3>
-                            <p class="step-subtitle">RL Policy Training (Isaac Sim / Gazebo)</p>
+                            <h3 class="step-title" data-i18n="story.step2.title">Simulation</h3>
+                            <p class="step-subtitle" data-i18n="story.step2.subtitle">RL Policy Training (Isaac Sim /
+                                Gazebo)</p>
                         </div>
                     </div>
 
                     <div class="workflow-step delay-300">
                         <div class="step-marker">03</div>
                         <div class="step-content">
-                            <h3 class="step-title">Sim-to-Real</h3>
-                            <p class="step-subtitle">Deploying Policies to Hardware</p>
+                            <h3 class="step-title" data-i18n="story.step3.title">Sim-to-Real</h3>
+                            <p class="step-subtitle" data-i18n="story.step3.subtitle">Deploying Policies to Hardware</p>
                         </div>
                     </div>
 
                     <div class="workflow-step delay-400">
                         <div class="step-marker">04</div>
                         <div class="step-content">
-                            <h3 class="step-title">Validation</h3>
-                            <p class="step-subtitle">Real-World Testing & Data</p>
+                            <h3 class="step-title" data-i18n="story.step4.title">Validation</h3>
+                            <p class="step-subtitle" data-i18n="story.step4.subtitle">Real-World Testing & Data</p>
                         </div>
                     </div>
                 </div>
                 <div class="story-content">
-                    <h2 class="story-title hidden">Our Story</h2>
-                    <p class="story-text hidden delay-100">Founded in 2026 at Istinye University in Turkey, NeuroTech is
+                    <h2 class="story-title hidden" data-i18n="story.title">Our Story</h2>
+                    <p class="story-text hidden delay-100" data-i18n="story.p1">Founded in 2026 at Istinye University in
+                        Turkey, NeuroTech is
                         a student
                         research team combining engineering and AI to build research-ready robotic platforms.</p>
-                    <p class="story-text hidden delay-200">Our goal is to work in a disciplined and professional
+                    <p class="story-text hidden delay-200" data-i18n="story.p2">Our goal is to work in a disciplined and
+                        professional
                         way—from designing and
                         assembling the robot to building accurate simulations, running real hardware tests, and
                         improving performance through experiments and data.</p>
-                    <p class="story-text hidden delay-300">We apply AI methods to model behavior, optimize control
+                    <p class="story-text hidden delay-300" data-i18n="story.p3">We apply AI methods to model behavior,
+                        optimize control
                         policies, and support
                         decision-making across the pipeline, while maintaining clear documentation, version-controlled
                         assets, and reproducible experiments that make our results easy to verify and build upon.</p>
                 </div>
             </div>
 
-            <h2 class="section-title hidden">The Minds</h2>
+            <h2 class="section-title hidden" data-i18n="team.title">The Minds</h2>
             <div class="team-grid">
                 <!-- Member 1 -->
                 <div class="team-card hidden delay-100">
@@ -125,11 +135,12 @@
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">ENES ABULĞAYT</h3>
-                        <p class="member-title">Computer Engineering Student</p>
-                        <p class="member-bio">Specializing in inverse kinematics and real-time control systems.</p>
+                        <p class="member-title" data-i18n="team.member1.title">Computer Engineering Student</p>
+                        <p class="member-bio" data-i18n="team.member1.bio">Specializing in inverse kinematics and
+                            real-time control systems.</p>
                         <div class="member-tags">
                             <span class="tag">IK</span>
-                            <span class="tag">Control</span>
+                            <span class="tag" data-i18n="tags.control">Control</span>
                             <span class="tag">ROS</span>
                         </div>
                         <div class="member-socials">
@@ -146,13 +157,14 @@
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">RAŞIT İSAOĞLU</h3>
-                        <p class="member-title">Computer Engineering Student</p>
-                        <p class="member-bio">Specializing in reinforcement learning environments and physics engines.
+                        <p class="member-title" data-i18n="team.member2.title">Computer Engineering Student</p>
+                        <p class="member-bio" data-i18n="team.member2.bio">Specializing in reinforcement learning
+                            environments and physics engines.
                         </p>
                         <div class="member-tags">
                             <span class="tag">RL</span>
-                            <span class="tag">Simulation</span>
-                            <span class="tag">Physics</span>
+                            <span class="tag" data-i18n="tags.simulation">Simulation</span>
+                            <span class="tag" data-i18n="tags.physics">Physics</span>
                         </div>
                         <div class="member-socials">
                             <a href="#"><i class="ph ph-linkedin-logo"></i></a>
@@ -165,7 +177,7 @@
 
         <!-- Projects Section -->
         <section id="projects" class="projects-section">
-            <h2 class="section-title hidden">Innovations</h2>
+            <h2 class="section-title hidden" data-i18n="projects.title">Innovations</h2>
             <div class="projects-slider-container hidden delay-100">
                 <div class="projects-track">
                     <!-- Project 1 -->
@@ -176,7 +188,8 @@
                         </div>
                         <div class="project-details">
                             <h3 class="project-name">Spot Micro</h3>
-                            <a href="#" class="view-project-btn">VIEW PROJECT <span class="arrow">→</span></a>
+                            <a href="#" class="view-project-btn"><span data-i18n="projects.view">VIEW PROJECT</span>
+                                <span class="arrow">→</span></a>
                         </div>
                     </div>
                     <!-- Additional placeholder for slider demonstration -->
@@ -186,7 +199,8 @@
                         </div>
                         <div class="project-details">
                             <h3 class="project-name">Neuro Arm V2</h3>
-                            <a href="#" class="view-project-btn">VIEW PROJECT <span class="arrow">→</span></a>
+                            <a href="#" class="view-project-btn"><span data-i18n="projects.view">VIEW PROJECT</span>
+                                <span class="arrow">→</span></a>
                         </div>
                     </div>
                     <div class="project-card">
@@ -195,7 +209,8 @@
                         </div>
                         <div class="project-details">
                             <h3 class="project-name">Swarm Drone</h3>
-                            <a href="#" class="view-project-btn">VIEW PROJECT <span class="arrow">→</span></a>
+                            <a href="#" class="view-project-btn"><span data-i18n="projects.view">VIEW PROJECT</span>
+                                <span class="arrow">→</span></a>
                         </div>
                     </div>
                 </div>
@@ -205,7 +220,7 @@
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="contact-content">
-                <h2 class="contact-title hidden">Get in Touch</h2>
+                <h2 class="contact-title hidden" data-i18n="contact.title">Get in Touch</h2>
                 <a href="mailto:contact@neurotech.com" class="contact-email hidden delay-100">contact@neurotech.com</a>
                 <div class="footer-socials hidden delay-200">
                     <a href="#"><i class="ph ph-instagram-logo"></i></a>
