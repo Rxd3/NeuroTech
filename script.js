@@ -349,4 +349,44 @@ document.addEventListener('DOMContentLoaded', () => {
             setLanguage(lang);
         });
     });
+
+    // --- Mobile Navbar Hamburger Toggle ---
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    const langSwitch = document.querySelector('.lang-switch');
+
+    // Create the hamburger menu button dynamically
+    const menuBtn = document.createElement('button');
+    menuBtn.className = 'mobile-menu-toggle';
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Toggle Navigation');
+    menuBtn.innerHTML = '<i class="ph ph-list"></i>';
+
+    // Insert the button before the language switcher
+    if (langSwitch) {
+        nav.insertBefore(menuBtn, langSwitch);
+    } else {
+        nav.appendChild(menuBtn);
+    }
+
+    // Handle toggle and close
+    menuBtn.addEventListener('click', () => {
+        const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !isExpanded);
+        navLinks.classList.toggle('active');
+
+        // Swap Phosphor icons
+        menuBtn.innerHTML = isExpanded
+            ? '<i class="ph ph-list"></i>'
+            : '<i class="ph ph-x"></i>';
+    });
+
+    // Automatically close the menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.innerHTML = '<i class="ph ph-list"></i>';
+        });
+    });
 });
