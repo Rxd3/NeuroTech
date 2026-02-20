@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Spot Micro - NeuroTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="flashlight"></div>
+
+    <nav>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="spotmicro.nav.back">← BACK TO HOME</a>
+        </div>
+        <div class="lang-switch">
+            <span class="lang-opt active" data-lang="en">EN</span>
+            <span class="lang-divider">|</span>
+            <span class="lang-opt" data-lang="tr">TR</span>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Rail -->
+    <div class="mobile-nav-rail">
+        <div class="rail-links">
+            <a href="index.html" class="rail-text" aria-label="Home" data-i18n="spotmicro.nav.back_mobile">← BACK</a>
+        </div>
+    </div>
+
+    <main class="project-page">
+        <!-- Project Hero -->
+        <section class="project-hero">
+            <div class="project-hero-container">
+                <div class="project-hero-text">
+                    <h1 class="project-hero-title">Spot Micro</h1>
+                    <p class="project-hero-status" data-i18n="spotmicro.hero.status">UNDER DEVELOPMENT</p>
+                    <h2 class="project-hero-tagline" data-i18n="spotmicro.hero.tagline">"Simulation-First Quadruped
+                        Robotics — ROS 2 Digital Twin,
+                        SLAM/Navigation, and Reinforcement Learning for Locomotion"</h2>
+
+                    <p class="project-hero-intro" data-i18n="spotmicro.hero.intro">
+                        Spot Micro is a research-oriented quadruped platform built with a simulation-first methodology.
+                        Our core goal is to develop a high-fidelity digital twin (URDF/Xacro + physics) and a
+                        disciplined ROS 2 software stack, then leverage reinforcement learning (RL) to optimize
+                        locomotion policies in simulation before transferring them safely to real hardware. The roadmap
+                        is structured around three pillars: (1) accurate simulation and reproducible experiments, (2)
+                        ROS 2 integration for modular robotics software, and (3) AI/RL for improving stability,
+                        tracking, and efficiency under real-world constraints.
+                    </p>
+
+                    <div class="quick-facts">
+                        <ul>
+                            <li><span class="fact-label" data-i18n="spotmicro.hero.facts.platform_lbl">Platform:</span>
+                                <span data-i18n="spotmicro.hero.facts.platform_val">12-DoF quadruped (3D-printed)</span>
+                            </li>
+                            <li><span class="fact-label" data-i18n="spotmicro.hero.facts.compute_lbl">Compute:</span>
+                                <span data-i18n="spotmicro.hero.facts.compute_val">Raspberry Pi 5 (8GB)</span>
+                            </li>
+                            <li><span class="fact-label"
+                                    data-i18n="spotmicro.hero.facts.actuation_lbl">Actuation:</span>
+                                <span data-i18n="spotmicro.hero.facts.actuation_val">12× MG996R + PCA9685</span>
+                            </li>
+                            <li><span class="fact-label" data-i18n="spotmicro.hero.facts.sensing_lbl">Sensing:</span>
+                                <span data-i18n="spotmicro.hero.facts.sensing_val">MPU-6050 IMU (LiDAR planned)</span>
+                            </li>
+                            <li><span class="fact-label" data-i18n="spotmicro.hero.facts.focus_lbl">Core Focus:</span>
+                                <span data-i18n="spotmicro.hero.facts.focus_val">Simulation • ROS 2 • RL
+                                    Locomotion</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-hero-gallery">
+                    <div class="image-slot hero-main-img" style="position: relative; width: 100%; height: 100%;">
+                        <!-- HERO IMAGE: Insert your URL in the src="" below! -->
+                        <img src="assets/spm.png" alt="Spot Micro Project Visual" class="project-img hero-main-img"
+                            onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder hero-main-img">
+                            <span data-i18n="spotmicro.hero.img">Spot Micro — Project Visual (CAD / Simulation /
+                                Hardware)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Content Sections -->
+        <section class="project-details">
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s1">Executive Summary</h3>
+                <p data-i18n="spotmicro.body.s1_p">This project presents a cost-efficient quadruped robot platform
+                    designed for AI-driven robotics
+                    research with strong emphasis on simulation accuracy and reproducibility. The system is developed in
+                    stages: first validating safe actuation and stable basic motion, then building a CAD-matched
+                    URDF/Xacro digital twin for ROS 2 integration and simulation benchmarking. With a reliable
+                    simulation baseline, the project introduces SLAM and navigation using LiDAR within ROS 2, and
+                    finally applies reinforcement learning to optimize locomotion behavior while reducing
+                    simulation-to-real mismatch through careful modeling and staged deployment.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s2">Problem Statement</h3>
+                <p data-i18n="spotmicro.body.s2_p">Quadruped robots can operate in complex terrain and confined
+                    environments, but they require
+                    coordinated multi-joint control, stability under dynamic motion, and careful deployment practices.
+                    Advanced autonomy and learning-based control often face the simulation-to-real gap, and many
+                    commercial platforms are expensive. This project addresses these constraints by prioritizing an
+                    accurate digital twin, ROS 2 modularity, and a simulation-first RL workflow that enables repeatable
+                    evaluation before real hardware deployment.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s3">Research Question</h3>
+                <p data-i18n="spotmicro.body.s3_p">How can we build a cost-efficient quadruped platform where a
+                    high-fidelity simulation and ROS 2
+                    digital twin enable reproducible locomotion experiments, SLAM/navigation integration, and
+                    reinforcement learning policy optimization, while minimizing simulation-to-real error for safe and
+                    reliable deployment on physical hardware?</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s4">Related Work (status)</h3>
+                <p data-i18n="spotmicro.body.s4_p">The project aligns with modern research in simulation-based robotics
+                    development, ROS 2 modular
+                    architectures, SLAM/navigation pipelines, and reinforcement learning for locomotion. The team has
+                    initiated a focused literature review and is actively reading multiple research papers spanning
+                    these domains. Because the work intersects simulation fidelity, ROS 2 integration, SLAM, and RL
+                    locomotion, we synthesize insights across multiple publications to justify design choices and
+                    position the project within the state of the art.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s5">Project Objectives</h3>
+                <h4 data-i18n="spotmicro.titles.s5_1">Core Objectives (Phase 1)</h4>
+                <ul>
+                    <li data-i18n="spotmicro.body.s5_li1">Establish a stable simulation baseline and a reproducible
+                        experiment setup (configs, logs,
+                        versioned assets).</li>
+                    <li data-i18n="spotmicro.body.s5_li2">Servo bring-up, calibration, and safe standing posture (Stand)
+                        aligned with simulation joint
+                        limits.</li>
+                    <li data-i18n="spotmicro.body.s5_li3">Implement inverse kinematics per leg and execute
+                        joystick/controller commands as a controlled
+                        baseline.</li>
+                    <li data-i18n="spotmicro.body.s5_li4">Implement a stable initial gait (Crawl) and achieve repeatable
+                        walking trials.</li>
+                    <li data-i18n="spotmicro.body.s5_li5">Use IMU feedback for basic posture and stability compensation
+                        (pitch/roll).</li>
+                </ul>
+
+                <h4 data-i18n="spotmicro.titles.s5_2">Advanced Objectives (Phases 2&ndash;4)</h4>
+                <ul>
+                    <li data-i18n="spotmicro.body.s5_li6">Build a CAD-matched URDF/Xacro digital twin to support ROS 2
+                        visualization, TF correctness, and
+                        simulation benchmarking.</li>
+                    <li data-i18n="spotmicro.body.s5_li7">Integrate with ROS 2 (nodes, topics, TF, RViz) for modular
+                        control and testing workflows.</li>
+                    <li data-i18n="spotmicro.body.s5_li8">Add LiDAR and perform SLAM/mapping, then navigation with
+                        obstacle avoidance (Nav2).</li>
+                    <li data-i18n="spotmicro.body.s5_li9">Train and deploy reinforcement learning locomotion policies:
+                        simulation training first, then
+                        staged real transfer with safety constraints.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s6">Methodology &amp; Simulation-First Development Path</h3>
+                <p data-i18n="spotmicro.body.s6_p">The methodology is simulation-first: we treat the digital twin as the
+                    foundation for reproducible
+                    testing, controller benchmarking, and RL training. Hardware experiments are introduced gradually and
+                    only after simulation baselines are validated. This reduces risk, improves safety, and supports
+                    repeatable scientific evaluation across design, simulation, deployment, and validation.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s7">Mechanical Design &amp; 3D Printing</h3>
+                <p data-i18n="spotmicro.body.s7_p">The chassis and leg structures are designed as a complete CAD
+                    assembly and manufactured using 3D
+                    printing for rapid iteration. CAD is treated as the single source of truth to ensure link dimensions
+                    and joint placements match the URDF/Xacro model, directly improving simulation fidelity and ROS 2
+                    consistency.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s8">Key Dimensions (Reference + CAD Finalization)</h3>
+                <p data-i18n="spotmicro.body.s8_p">Because the mechanical layout follows the SpotMicro family closely,
+                    this proposal includes widely
+                    adopted open-source reference dimensions for core body size and leg link lengths. The final envelope
+                    (overall L/W/H) will be confirmed from Fusion 360 using Inspect &rarr; Measure prior to fabrication
+                    and URDF export.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="spotmicro.table_dim.th1">Parameter</th>
+                            <th data-i18n="spotmicro.table_dim.th2">Symbol</th>
+                            <th data-i18n="spotmicro.table_dim.th3">Value (mm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-i18n-row="spotmicro.table_dim.r1">
+                            <td>Body length (chassis only)</td>
+                            <td>Lb</td>
+                            <td>207.5</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_dim.r2">
+                            <td>Body width (chassis only)</td>
+                            <td>Wb</td>
+                            <td>78.0</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_dim.r3">
+                            <td>Coxa (hip) link length</td>
+                            <td>l0</td>
+                            <td>60.5</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_dim.r4">
+                            <td>Hip-to-knee link length (femur)</td>
+                            <td>l1</td>
+                            <td>111.2</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_dim.r5">
+                            <td>Knee-to-foot link length (tibia)</td>
+                            <td>l2</td>
+                            <td>118.5</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_dim.r6">
+                            <td>Max leg reach</td>
+                            <td>Rmax</td>
+                            <td>219.7</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_dim.r7">
+                            <td>Body height range (IK feasible)</td>
+                            <td>Hb</td>
+                            <td>98.9&ndash;197.7</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="note-text" data-i18n="spotmicro.table_dim.note">Final dimensions will be locked from Fusion
+                    360 prior to fabrication and URDF
+                    export.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s9">Power, Safety, and Real-World Constraints</h3>
+                <p data-i18n="spotmicro.body.s9_p">Real hardware introduces strict constraints: current draw, voltage
+                    drops, servo backlash, and
+                    mechanical stress. Power integrity is treated as a first-class requirement, using a dedicated
+                    high-current 5V servo rail separate from the Raspberry Pi supply with a common ground. Software
+                    safety limits (joint limits, soft-start, conservative gait timing) protect hardware during early
+                    experiments and staged policy deployment.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s10">Baseline Control (IK + Joystick) for Benchmarking</h3>
+                <p data-i18n="spotmicro.body.s10_p">The baseline controller is intentionally simple and measurable:
+                    inverse kinematics converts desired
+                    foot targets into joint angles, while a conservative gait generator (Crawl) provides stable
+                    stepping. Joystick teleoperation is used as a controlled input source to benchmark stability and
+                    tracking in both simulation and real hardware, forming the foundation for later ROS 2 integration
+                    and RL optimization.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s11">Digital Twin &amp; ROS 2 Modeling (URDF/Xacro)</h3>
+                <p data-i18n="spotmicro.body.s11_p">A CAD-matched URDF/Xacro model is created to serve as a digital
+                    twin. Joint limits, coordinate
+                    frames, and inertial approximations are aligned to the physical robot so that TF trees and RViz
+                    visualization remain consistent. This digital twin enables simulation benchmarking, faster
+                    debugging, and reproducible experiments, and it reduces sim-to-real mismatch before RL policies are
+                    deployed.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s12">ROS 2 Integration (Modular Robotics Software)</h3>
+                <p data-i18n="spotmicro.body.s12_p">ROS 2 is used to structure the software stack into modular
+                    components: control nodes, sensor
+                    interfaces, TF publishers, RViz visualization, and test tools. By standardizing the pipeline in ROS
+                    2, the project supports repeatable validation, easier collaboration, and clean transitions from
+                    simulation to real hardware.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s13">SLAM &amp; Navigation (LiDAR + Nav2)</h3>
+                <div class="image-row">
+                    <p data-i18n="spotmicro.slam.desc">With a correct ROS 2 model and TF setup, LiDAR-based SLAM is
+                        introduced to produce a 2D occupancy
+                        grid map. The navigation stage uses ROS 2 Nav2 to reach goal poses and avoid obstacles using
+                        costmaps and local planning. The process is incremental: teleop mapping first, then navigation
+                        tuning and robustness tests.</p>
+                    <div class="image-slot hero-sub-img" style="position: relative; width: 100%; height: 100%;">
+                        <!-- SLAM IMAGE: Insert your URL in the src="" below! -->
+                        <img src="assets/slam.jpg" alt="SLAM Map" class="project-img hero-sub-img"
+                            onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder hero-sub-img">
+                            <span data-i18n="spotmicro.slam.img">SLAM Map</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s14">Reinforcement Learning for Locomotion (Simulation &rarr; Real)</h3>
+                <p data-i18n="spotmicro.body.s14_p">Reinforcement learning is used as an optimization layer for
+                    locomotion rather than raw servo-level
+                    control. Policies optimize gait parameters (step length, step height, timing, posture offsets) and
+                    stability objectives. Training begins in simulation using the digital twin, supported by domain
+                    randomization (noise, friction, mass variations) to reduce sim-to-real gap. Deployment to hardware
+                    is staged with conservative limits and strict safety constraints.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s15">System Components (Current Build)</h3>
+                <ul>
+                    <li data-i18n="spotmicro.body.s15_list.i1">Raspberry Pi 5 (8GB) with active cooler</li>
+                    <li data-i18n="spotmicro.body.s15_list.i2">microSD Card (64GB, Class 10)</li>
+                    <li data-i18n="spotmicro.body.s15_list.i3">12x MG996R metal gear servo motors</li>
+                    <li data-i18n="spotmicro.body.s15_list.i4">PCA9685 16-channel I2C servo driver</li>
+                    <li data-i18n="spotmicro.body.s15_list.i5">MPU-6050 (GY-521) IMU module</li>
+                    <li data-i18n="spotmicro.body.s15_list.i6">Raspberry Pi Camera Module (v2 or v3)</li>
+                    <li data-i18n="spotmicro.body.s15_list.i7">OLED SSD1306 (128x64, I2C)</li>
+                    <li data-i18n="spotmicro.body.s15_list.i8">LED power button and rocker power switch</li>
+                    <li data-i18n="spotmicro.body.s15_list.i9">7.4V (2S) Li-Po battery</li>
+                    <li data-i18n="spotmicro.body.s15_list.i10">DC-DC buck converter (5V, &gt;= 5A)</li>
+                    <li data-i18n="spotmicro.body.s15_list.i11">Mechanical hardware: bearings (F625zz), screws/nuts
+                        (M3/M4/M5)</li>
+                </ul>
+                <p><strong data-i18n="spotmicro.body.s15_planned">Planned addition:</strong></p>
+                <ul>
+                    <li data-i18n="spotmicro.body.s15_li_plan">2D LiDAR sensor (required for SLAM and navigation).</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s16">Technical Architecture (High-Level)</h3>
+                <p data-i18n="spotmicro.body.s16_p">Simulation &amp; Digital Twin: URDF/Xacro + physics simulation used
+                    for benchmarking and RL training.
+                    Actuation: PCA9685 PWM output to servos. Kinematics: IK transforms foot trajectories into joint
+                    angles. Gait planning: Crawl baseline with conservative timing. Stability: IMU-based posture
+                    compensation (pitch/roll). ROS 2 layer: nodes, topics, TF, RViz, Nav2. Perception: LiDAR (SLAM) and
+                    camera (optional). Learning: RL policies optimize locomotion parameters for stability and
+                    efficiency.</p>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s17">Early-Phase Acceptance Criteria</h3>
+                <p data-i18n="spotmicro.body.s17_p">To ensure objective evaluation, early milestones are defined with
+                    measurable pass/fail criteria:</p>
+                <ul>
+                    <li data-i18n="spotmicro.body.s17_list.i1">ROS 2 readiness: URDF/Xacro visualizes correct joint
+                        motion in RViz and TF frames are
+                        consistent.</li>
+                    <li data-i18n="spotmicro.body.s17_list.i2">Walk (Crawl): walk forward for &ge; 3 meters under
+                        joystick control with at least 2 repeatable
+                        successful trials.</li>
+                    <li data-i18n="spotmicro.body.s17_list.i3">Stand: maintain a stable standing posture for &ge; 60
+                        seconds without a fall and without
+                        violating joint limits.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s18">Roadmap &amp; Timeline Estimates</h3>
+                <p data-i18n="spotmicro.body.s18_p">The following timeline estimates assume 1-2 hours of work per day.
+                    With more time, durations shrink
+                    proportionally.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="spotmicro.table_time.th1">Stage</th>
+                            <th data-i18n="spotmicro.table_time.th2">Scope and Deliverable</th>
+                            <th data-i18n="spotmicro.table_time.th3">Estimated Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-i18n-row="spotmicro.table_time.r0">
+                            <td>Stage 0</td>
+                            <td>Simulation baseline + power and wiring validation</td>
+                            <td>3-7 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r1">
+                            <td>Stage 1</td>
+                            <td>Mechanical assembly (mount servos, bearings, chassis, cable management)</td>
+                            <td>7-14 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r2">
+                            <td>Stage 2</td>
+                            <td>Servo bring-up, calibration, Stand posture</td>
+                            <td>7-14 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r3">
+                            <td>Stage 3</td>
+                            <td>IK + joystick teleoperation (baseline benchmarking)</td>
+                            <td>14-21 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r4">
+                            <td>Stage 4</td>
+                            <td>Crawl gait + IMU compensation (repeatable walk trials)</td>
+                            <td>14-28 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r5">
+                            <td>Stage 5</td>
+                            <td>URDF/Xacro digital twin (RViz + TF correctness)</td>
+                            <td>7-14 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r6">
+                            <td>Stage 6</td>
+                            <td>ROS 2 integration (nodes, topics, testing pipeline)</td>
+                            <td>14-21 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r7">
+                            <td>Stage 7</td>
+                            <td>LiDAR SLAM/mapping (produce and save a 2D map)</td>
+                            <td>14-28 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r8">
+                            <td>Stage 8</td>
+                            <td>Navigation + obstacle avoidance (Nav2 tuning, go-to-goal)</td>
+                            <td>21-42 days</td>
+                        </tr>
+                        <tr data-i18n-row="spotmicro.table_time.r9">
+                            <td>Stage 9</td>
+                            <td>RL locomotion optimization (sim training &rarr; staged real transfer)</td>
+                            <td>28-56 days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="content-block">
+                <h3 data-i18n="spotmicro.titles.s19">Risk Management (Key Risks and Mitigations)</h3>
+                <ul>
+                    <li data-i18n="spotmicro.body.s19_list.i1">Simulation-to-real gap: CAD-matched digital twin, domain
+                        randomization, staged deployment with
+                        strict safety constraints.</li>
+                    <li data-i18n="spotmicro.body.s19_list.i2">High current draw / voltage drop: Dedicated high-current
+                        5V servo buck, separate from Pi; common
+                        ground; soft-start.</li>
+                    <li data-i18n="spotmicro.body.s19_list.i3">Servo inaccuracy/backlash: Crawl baseline first,
+                        calibration, joint limits, conservative timing.
+                    </li>
+                    <li data-i18n="spotmicro.body.s19_list.i4">SLAM and TF inconsistencies: Accurate URDF/Xacro frames,
+                        validate TF tree in RViz, teleop
+                        mapping first.</li>
+                    <li data-i18n="spotmicro.body.s19_list.i5">Mechanical stress: reinforce mounts, iterate prints at
+                        high-stress points, reduce sudden
+                        motions.</li>
+                </ul>
+            </div>
+
+            <div class="projects-footer" style="padding-bottom: 2rem;">
+                <p data-i18n="spotmicro.footer">More updates coming soon.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
