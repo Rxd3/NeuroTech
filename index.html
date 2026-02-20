@@ -31,6 +31,16 @@
         </div>
     </nav>
 
+    <!-- Mobile Navigation Rail -->
+    <div class="mobile-nav-rail">
+        <div class="rail-links">
+            <a href="#home" class="rail-text active" aria-label="Home" data-i18n="nav.home">HOME</a>
+            <a href="#story" class="rail-text" aria-label="About" data-i18n="nav.about">ABOUT</a>
+            <a href="#projects" class="rail-text" aria-label="Projects" data-i18n="nav.projects">PROJECTS</a>
+            <a href="#contact" class="rail-text" aria-label="Contact" data-i18n="nav.contact">CONTACT</a>
+        </div>
+    </div>
+
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
@@ -54,11 +64,12 @@
             <a href="#projects" class="scroll-badge" aria-label="Scroll to Projects">
                 <div class="badge-text-wrapper">
                     <svg viewBox="0 0 100 100" class="badge-text-svg">
-                        <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                        <path id="circlePath" d="M 50, 50 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"
                             fill="transparent" />
                         <text>
-                            <textPath href="#circlePath" fill="currentColor" data-i18n="hero.scroll">
-                                SCROLL DOWN • SCROLL DOWN •
+                            <textPath href="#circlePath" fill="currentColor" data-i18n="hero.scroll" textLength="260"
+                                lengthAdjust="spacing">
+                                SPOTMICRO • SPOTMICRO •
                             </textPath>
                         </text>
                     </svg>
@@ -127,112 +138,114 @@
                 </div>
             </div>
 
-            <h2 class="section-title hidden" data-i18n="team.title">The Minds</h2>
-            <div class="team-grid">
-                <!-- Member 1 -->
-                <div class="team-card hidden delay-100">
-                    <div class="member-photo">
-                        <img src="assets/enes.png" alt="Team Member"
-                            onerror="this.src='https://via.placeholder.com/400x500/333/888?text=Member+1'">
-                    </div>
-                    <div class="member-info">
-                        <h3 class="member-name">ENES ABULĞAYT</h3>
-                        <p class="member-title" data-i18n="team.member1.title">Computer Engineering Student</p>
-                        <p class="member-bio" data-i18n="team.member1.bio">Specializing in inverse kinematics and
-                            real-time control systems.</p>
-                        <div class="member-tags">
-                            <span class="tag">IK</span>
-                            <span class="tag" data-i18n="tags.control">Control</span>
-                            <span class="tag">ROS</span>
+            <!-- Team Section -->
+            <section id="team" class="team-section">
+                <h2 class="section-title hidden" data-i18n="team.title">The Minds</h2>
+                <div class="team-grid">
+                    <!-- Member 1 -->
+                    <div class="team-card hidden delay-100">
+                        <div class="member-photo">
+                            <img src="assets/enes.png" alt="Team Member"
+                                onerror="this.src='https://via.placeholder.com/400x500/333/888?text=Member+1'">
                         </div>
-                        <div class="member-socials">
-                            <a href="https://www.linkedin.com/in/enes-abulgayt/"><i class="ph ph-linkedin-logo"></i></a>
-                            <a href="https://github.com/enes-abulgayt"><i class="ph ph-github-logo"></i></a>
+                        <div class="member-info">
+                            <h3 class="member-name">ENES ABULĞAYT</h3>
+                            <p class="member-title" data-i18n="team.member1.title">Computer Engineering Student</p>
+                            <p class="member-bio" data-i18n="team.member1.bio">Specializing in inverse kinematics and
+                                real-time control systems.</p>
+                            <div class="member-tags">
+                                <span class="tag">IK</span>
+                                <span class="tag" data-i18n="tags.control">Control</span>
+                                <span class="tag">ROS</span>
+                            </div>
+                            <div class="member-socials">
+                                <a href="https://www.linkedin.com/in/enes-abulgayt/"><i
+                                        class="ph ph-linkedin-logo"></i></a>
+                                <a href="https://github.com/enes-abulgayt"><i class="ph ph-github-logo"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Member 2 -->
+                    <div class="team-card hidden delay-200">
+                        <div class="member-photo">
+                            <img src="assets/rasit.png" alt="Team Member"
+                                onerror="this.src='https://via.placeholder.com/400x500/333/888?text=Member+2'">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">RAŞIT İSAOĞLU</h3>
+                            <p class="member-title" data-i18n="team.member2.title">Computer Engineering Student</p>
+                            <p class="member-bio" data-i18n="team.member2.bio">Specializing in reinforcement learning
+                                environments and physics engines.
+                            </p>
+                            <div class="member-tags">
+                                <span class="tag">RL</span>
+                                <span class="tag" data-i18n="tags.simulation">Simulation</span>
+                                <span class="tag" data-i18n="tags.physics">Physics</span>
+                            </div>
+                            <div class="member-socials">
+                                <a href="https://www.linkedin.com/in/rasit-isaoglu-538577322/"><i
+                                        class="ph ph-linkedin-logo"></i></a>
+                                <a href="https://github.com/Rxd3"><i class="ph ph-github-logo"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Member 2 -->
-                <div class="team-card hidden delay-200">
-                    <div class="member-photo">
-                        <img src="assets/rasit.png" alt="Team Member"
-                            onerror="this.src='https://via.placeholder.com/400x500/333/888?text=Member+2'">
-                    </div>
-                    <div class="member-info">
-                        <h3 class="member-name">RAŞIT İSAOĞLU</h3>
-                        <p class="member-title" data-i18n="team.member2.title">Computer Engineering Student</p>
-                        <p class="member-bio" data-i18n="team.member2.bio">Specializing in reinforcement learning
-                            environments and physics engines.
-                        </p>
-                        <div class="member-tags">
-                            <span class="tag">RL</span>
-                            <span class="tag" data-i18n="tags.simulation">Simulation</span>
-                            <span class="tag" data-i18n="tags.physics">Physics</span>
-                        </div>
-                        <div class="member-socials">
-                            <a href="https://www.linkedin.com/in/rasit-isaoglu-538577322/"><i
-                                    class="ph ph-linkedin-logo"></i></a>
-                            <a href="https://github.com/Rxd3"><i class="ph ph-github-logo"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <h2 class="section-title hidden" data-i18n="projects.title">Innovations</h2>
-            <div class="projects-slider-container hidden delay-100">
-                <div class="projects-track">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="project-thumb">
-                            <img src="assets/spotmicro.png" alt="Spot Micro"
-                                onerror="this.src='https://via.placeholder.com/600x400/333/888?text=Spot+Micro'">
+            <!-- Projects Section -->
+            <section id="projects" class="projects-section">
+                <h2 class="section-title hidden" data-i18n="projects.title">Innovations</h2>
+                <div class="featured-project-container hidden delay-100">
+                    <div class="featured-project">
+                        <div class="project-image-col">
+                            <div class="project-thumb">
+                                <img src="assets/spotmicro.png" alt="Spot Micro"
+                                    onerror="this.src='https://via.placeholder.com/800x600/333/888?text=Spot+Micro'">
+                            </div>
                         </div>
-                        <div class="project-details">
+                        <div class="project-info-col">
                             <h3 class="project-name">Spot Micro</h3>
-                            <a href="#" class="view-project-btn"><span data-i18n="projects.view">VIEW PROJECT</span>
-                                <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                    <!-- Additional placeholder for slider demonstration -->
-                    <div class="project-card">
-                        <div class="project-thumb">
-                            <div class="placeholder-thumb"></div>
-                        </div>
-                        <div class="project-details">
-                            <h3 class="project-name">Neuro Arm V2</h3>
-                            <a href="#" class="view-project-btn"><span data-i18n="projects.view">VIEW PROJECT</span>
-                                <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumb">
-                            <div class="placeholder-thumb"></div>
-                        </div>
-                        <div class="project-details">
-                            <h3 class="project-name">Swarm Drone</h3>
-                            <a href="#" class="view-project-btn"><span data-i18n="projects.view">VIEW PROJECT</span>
-                                <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                            <p class="project-status" data-i18n="projects.status">Under Development</p>
+                            <p class="project-description" data-i18n="projects.desc">Spot Micro is our quadruped
+                                robotics platform for locomotion, control, and sim-to-real experiments. We’re building
+                                the mechanical design, a digital twin, and a robust testing pipeline.</p>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="contact-content">
-                <h2 class="contact-title hidden" data-i18n="contact.title">Get in Touch</h2>
-                <a href="mailto:contact@neurotech.com" class="contact-email hidden delay-100">contact@neurotech.com</a>
-                <div class="footer-socials hidden delay-200">
-                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
-                    <a href="#"><i class="ph ph-github-logo"></i></a>
-                    <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <div class="project-meta">
+                                <div class="meta-row">
+                                    <span class="meta-label">Focus:</span>
+                                    <span class="meta-values">RL • Simulation • Control</span>
+                                </div>
+                                <div class="meta-row">
+                                    <span class="meta-label">Stack:</span>
+                                    <span class="meta-values">ROS • Isaac Sim / Gazebo</span>
+                                </div>
+                            </div>
+
+                            <a href="#projects" class="view-project-btn"><span data-i18n="projects.view">READ
+                                    MORE</span>
+                                <span class="arrow">→</span></a>
+                        </div>
+                    </div>
                 </div>
-                <p class="copyright hidden delay-300">© 2026 NeuroTech.</p>
-            </div>
-        </section>
+                <div class="projects-footer hidden delay-200">
+                    <p data-i18n="projects.footer">More projects are coming soon.</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section">
+                <div class="contact-content">
+                    <h2 class="contact-title hidden" data-i18n="contact.title">Get in Touch</h2>
+                    <a href="mailto:contact@neurotech.com"
+                        class="contact-email hidden delay-100">contact@neurotech.com</a>
+                    <div class="footer-socials hidden delay-200">
+                        <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#"><i class="ph ph-github-logo"></i></a>
+                        <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                    </div>
+                    <p class="copyright hidden delay-300">© 2026 NeuroTech.</p>
+                </div>
+            </section>
     </main>
 
     <script src="script.js"></script>

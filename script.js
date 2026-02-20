@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero: {
                 subtitle: "Bridging the gap between artificial intelligence and physical hardware. We design advanced simulations and implement them into real-world mechanics.",
                 est: "EST. 2026",
-                scroll: "SCROLL DOWN • SCROLL DOWN •"
+                scroll: "SPOTMICRO • SPOTMICRO • "
             },
             story: {
                 step1: { title: "Design", subtitle: "Hardware Design & CAD" },
@@ -252,7 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             projects: {
                 title: "Innovations",
-                view: "VIEW PROJECT"
+                view: "READ MORE",
+                status: "Under Development",
+                footer: "More projects are coming soon."
             },
             contact: {
                 title: "Get in Touch"
@@ -268,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero: {
                 subtitle: "Yapay zeka ve fiziksel donanım arasındaki boşluğu dolduruyoruz. Gelişmiş simülasyonlar tasarlıyor ve bunları gerçek mekaniklere uyguluyoruz.",
                 est: "KUR. 2026",
-                scroll: "AŞAĞI KAYDIR • AŞAĞI KAYDIR •"
+                scroll: "SPOTMICRO • SPOTMICRO • "
             },
             story: {
                 step1: { title: "Tasarım", subtitle: "Donanım Tasarımı & CAD" },
@@ -389,4 +391,24 @@ document.addEventListener('DOMContentLoaded', () => {
             menuBtn.innerHTML = '<i class="ph ph-list"></i>';
         });
     });
+
+    // --- Mobile Rail Scroll Highlighting ---
+    const railLinks = document.querySelectorAll('.rail-text');
+    const sections = document.querySelectorAll('section');
+
+    const railObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && window.innerWidth <= 768) {
+                const id = entry.target.getAttribute('id');
+                railLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+
+    sections.forEach(section => railObserver.observe(section));
 });
